@@ -13,7 +13,6 @@ import javax.persistence.EntityManager;
 
 @Configuration
 public class SpringConfig {
-
 //    순수 JPA만 쓰는 경우
 //    private EntityManager em;
 //
