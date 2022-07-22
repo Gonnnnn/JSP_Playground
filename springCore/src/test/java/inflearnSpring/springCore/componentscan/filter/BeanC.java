@@ -1,2 +1,7 @@
-package inflearnSpring.springCore.componentscan.filter;public class BeanC {
+package inflearnSpring.springCore.componentscan.filter;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BeanC {
 }

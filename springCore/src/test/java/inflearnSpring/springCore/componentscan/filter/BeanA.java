@@ -1,2 +1,4 @@
-package inflearnSpring.springCore.componentscan.filter;public class BeanA {
+package inflearnSpring.springCore.componentscan.filter;
+@MyIncludeComponent
+public class BeanA {
 }

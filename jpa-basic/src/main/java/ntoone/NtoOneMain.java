@@ -1,4 +1,4 @@
-package entitymapping;
+package ntoone;
 
 import hellojpa.Member;
 
@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class EntityMappingMain {
+public class NtoOneMain {
     public static void main(String[] args) {
         // application 실행시
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -19,13 +19,19 @@ public class EntityMappingMain {
         tx.begin();
 
         try {
-            //비영속
-            User user = new User("gon", 25, RoleType.ADMIN, null, null, "me!");
-            em.persist(user);
-            //commit이 불리기 전까지는 쓰기 지연 SQL 저장소에 쿼리를 쌓아두었다가 불리고 나서 반영
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            User user1 = new User("uhh", 101, RoleType.USER, null, null, "test");
-            em.persist(user1);
+            MemberN member = new MemberN();
+            member.setTeam(team);
+            member.setUsername("Gon");
+            em.persist(member);
+
+            MemberN fm = em.find(MemberN.class, member.getId());
+            Team team1 = fm.getTeam();
+            System.out.println("team1 = " + team1.getName());
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

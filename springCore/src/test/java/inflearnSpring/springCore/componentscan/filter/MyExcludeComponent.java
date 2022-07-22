@@ -1,2 +1,9 @@
-package inflearnSpring.springCore.componentscan.filter;public @interface MyExcludeComponent {
+package inflearnSpring.springCore.componentscan.filter;
+
+import java.lang.annotation.*;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface MyExcludeComponent {
 }
